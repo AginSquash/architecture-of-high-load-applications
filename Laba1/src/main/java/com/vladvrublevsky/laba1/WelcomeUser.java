@@ -11,7 +11,7 @@ public class WelcomeUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         java.util.Date date = new java.util.Date();
-        out.println("<h2>"+"Welcome user\nCurrent Date & Time: " +date.toString()+"</h2>");
+        out.println("Welcome User. Current Date & Time: " +date.toString());
         out.close();
     }
 }

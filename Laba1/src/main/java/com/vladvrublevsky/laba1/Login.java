@@ -26,10 +26,10 @@ public class Login extends HttpServlet {
         else
         {
             if (AR == AuthResult.successful) {
-                RequestDispatcher rs = request.getRequestDispatcher("Welcome");
+                RequestDispatcher rs = request.getRequestDispatcher("WelcomeUser");
                 rs.forward(request, response);
             } else if (AR == AuthResult.Isuperuser ){
-                RequestDispatcher rs = request.getRequestDispatcher("Welcome2");
+                RequestDispatcher rs = request.getRequestDispatcher("WelcomeAdmin");
                 rs.forward(request, response);
             }
         }
