@@ -16,16 +16,22 @@ public class Login extends HttpServlet {
         String login = request.getParameter("login");
         String pass = request.getParameter("pass");
 
-        if(Validate.checkUser(login, pass))
-        {
-            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
-            rs.forward(request, response);
-        }
-        else
+        AuthResult AR = Validate.checkUser(login, pass);
+        if(AR == AuthResult.unsuccessful)
         {
             out.println("Username or Password incorrect");
             RequestDispatcher rs = request.getRequestDispatcher("index.html");
             rs.include(request, response);
+        }
+        else
+        {
+            if (AR == AuthResult.successful) {
+                RequestDispatcher rs = request.getRequestDispatcher("Welcome");
+                rs.forward(request, response);
+            } else if (AR == AuthResult.Isuperuser ){
+                RequestDispatcher rs = request.getRequestDispatcher("Welcome2");
+                rs.forward(request, response);
+            }
         }
     }
 }

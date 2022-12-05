@@ -5,8 +5,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class CreateTable {
-    public static void main(String[] args) {
-
+    public static void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -26,6 +25,8 @@ public class CreateTable {
             stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1002, 'Mcbeal', '456', 0)");
             stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1003, 'Flinstone', '789', 0)");
             stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1004, 'Cramden', '000', 1)");
+            stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1005, 'Vlad', '000', 1)");
+            stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1005, 'User', '000', 0)");
 
             System.out.println("Values inserted");
             stmt.close();
