@@ -12,7 +12,7 @@ public class CreateTable {
 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/testDB", "root", "MyNewPass");
             Statement stmt = con.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS REGISTRATION " +
+            String sql = "CREATE TABLE IF NOT EXISTS USERS " +
                     "(id INTEGER not NULL, " +
                     " login VARCHAR(255), " +
                     " pass VARCHAR(255), " + // тут бы соль+хэш но так лень...... как-нибудь потом?
@@ -22,10 +22,10 @@ public class CreateTable {
             stmt.executeUpdate(sql);
             System.out.println("Table created");
 
-            stmt.executeUpdate("INSERT IGNORE INTO REGISTRATION " + "VALUES (1001, 'Simpson', '123', 1)");
-            stmt.executeUpdate("INSERT IGNORE INTO REGISTRATION " + "VALUES (1002, 'Mcbeal', '456', 0)");
-            stmt.executeUpdate("INSERT IGNORE INTO REGISTRATION " + "VALUES (1003, 'Flinstone', '789', 0)");
-            stmt.executeUpdate("INSERT IGNORE INTO REGISTRATION " + "VALUES (1004, 'Cramden', '000', 1)");
+            stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1001, 'Simpson', '123', 1)");
+            stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1002, 'Mcbeal', '456', 0)");
+            stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1003, 'Flinstone', '789', 0)");
+            stmt.executeUpdate("INSERT IGNORE INTO USERS " + "VALUES (1004, 'Cramden', '000', 1)");
 
             System.out.println("Values inserted");
             stmt.close();
